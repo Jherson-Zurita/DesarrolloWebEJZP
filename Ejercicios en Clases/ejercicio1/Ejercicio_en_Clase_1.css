@@ -1,0 +1,123 @@
+#contenid{
+    margin: 0 auto;
+    width: 900px;
+    border:1px solid black;
+
+}
+
+.cabezera{
+
+    display: flex;
+
+background-color: green;
+
+     
+}
+
+.logo{
+
+width: 20%;
+
+}
+
+.text1{
+padding-top: 10px;
+width: 80%;
+
+}
+
+#usfx{
+
+    width: 50px;
+
+    padding-left: 69%;
+}
+
+.red{
+
+    color: red;
+}
+
+.blue{
+
+    color: blue;
+
+}
+
+.yellow{
+
+    color: yellow;
+}
+
+.green{
+
+    color: green;
+}
+
+.text2{
+
+   background-color: green;
+
+   display: flex;
+   
+
+
+}
+
+
+.nombre{
+
+    width: 80%;
+}
+
+.semestre{
+
+text-align: right;
+width: 20% ;
+
+}
+
+
+#cuerpo{
+    display: flex;
+
+    border: 1px solid black;
+}
+
+#izquierda{
+    width: 100px;
+
+    border-right: 1px solid black;
+}
+
+#centro{
+
+    width: 700px;
+
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+#derecha{
+
+    width: 100px;
+
+    border-left: 1px solid black;
+}
+
+
+.pie{
+
+    padding: 20px;
+    color: white;
+
+    background-color: rgb(52, 102, 203);
+
+    text-align: center;
+}
+
+.menu{
+
+    list-style-type: none;
+    padding: 10px;
+}
