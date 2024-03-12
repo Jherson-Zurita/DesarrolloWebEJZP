@@ -17,7 +17,6 @@
                 $palabraMasGrande = $palabra;
             }
         }
-
         return $palabraMasGrande;
     }
 

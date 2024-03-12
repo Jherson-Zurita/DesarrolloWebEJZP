@@ -8,10 +8,7 @@
 .cabezera{
 
     display: flex;
-
-background-color: green;
-
-     
+    background-color: green;
 }
 
 .logo{
@@ -86,7 +83,6 @@ width: 20% ;
 
 #izquierda{
     width: 100px;
-
     border-right: 1px solid black;
 }
 
