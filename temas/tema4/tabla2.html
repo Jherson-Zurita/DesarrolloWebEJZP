@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tabla {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .tabla td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            background-color: aqua;
+            padding: 10px;
+        }
+        .tabla tr {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var num1 = parseInt(prompt("Numero de filas A :"));
+        var num2 = parseInt(prompt("Numero de columnas B :"));
+
+        html ='<table class="tabla">';
+            for (var i = 0; i < num1; i++){
+                html+="<tr>";
+                for(var f = 0; f < num2; f++){
+                    html+=`<td>${f}</td>`;
+                }
+                html+="</tr>";
+            }
+        html+="</tabla>";
+        document.write(html);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function coche(marca,modelo,color){
+            this.marca=marca;
+            this.modelo=modelo;
+            this.color=color;
+        }
+        coche.prototype.mostrarcoche=function(){
+            document.write("marca"+this.marca+"y modelo "+this.modelo+" de este color "+this.color);
+        }
+
+        var auto1 = new coche("ford","fiesta","rojo");
+        var auto2 = new coche("ford","focus","azul");
+
+        auto1.mostrarcoche();
+        document.write("<br>");
+        auto2.mostrarcoche();
+    </script>
+</body>
+</html>

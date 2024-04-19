@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function alumno(nombre,edad,cu,materias) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.cu = cu;
+            this.materias = materias;
+        }
+        function MostrarAlumno(){
+            document.write("Nombre: " + this.nombre + "Edad:" + this.edad + "años");
+        }
+        function MostarMaterias(){
+            document.write("Materias: ");
+            for (var i in this.materias){
+                document.write()
+            }
+        }
+    </script>
+</body>
+</html>
