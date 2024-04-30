@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            
+            <input type="number" name="a" id="a" style="width: 20px;">
+            <label for="a">X^2</label>
+            <span>+</span>
+            <input type="number" name="b" id="b" style="width: 20px;">
+            <label for="a">X</label>
+            <span>+</span>
+            <input type="number" name="c" id="c" style="width: 20px;">
+            <span> = 0</span>
+        </div>
+        <input type="button" value="Calcular" onclick="raiz()">
+        <div>
+            <div id="x1">
+                &nbsp;
+            </div>
+            <div id="x2">
+                &nbsp;
+            </div>
+        </div>
+    </form>
+    
+</body>
+<script>
+    
+    function raiz(){
+        var a = document.getElementById("a").value;
+        var b = document.getElementById("b").value;
+        var c = document.getElementById("c").value;
+
+        var discrimt = b * b - 4 * a * c;
+
+        if (discrimt < 0) {
+            var x1 = (-b / (2 * a)) + " + " + (Math.sqrt(Math.abs(discrimt)) / (2 * a)) + "i";
+            var x2 = (-b / (2 * a)) + " - " + (Math.sqrt(Math.abs(discrimt)) / (2 * a)) + "i";
+        
+            document.getElementById("x1").innerHTML = "X1: <span style='color: red;'>" + x1 + "</span>";
+            document.getElementById("x2").innerHTML = "X2: <span style='color: red;'>" + x2 + "</span>";
+        } else {
+            var x1 = (-b + Math.sqrt(discrimt)) / (2 * a);
+            var x2 = (-b - Math.sqrt(discrimt)) / (2 * a);
+        
+            document.getElementById("x1").innerHTML = "X1: " + x1;
+            document.getElementById("x2").innerHTML = "X2: " + x2;
+        }
+    }
+</script>
+</html>
