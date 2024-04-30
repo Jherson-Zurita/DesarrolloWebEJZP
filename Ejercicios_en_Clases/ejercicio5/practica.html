@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="num1">Ingrese numero 1:</label>
+        <input type="number" name="a" id="a"><br>
+        <label for="num2">Ingrese numero 2:</label>
+        <input type="number" name="b" id="b"><br>
+        <select name="ope" id="ope" onchange="operacion()">
+            <option value="sumar">Sumar</option>
+            <option value="restar">Restar</option>
+            <option value="multiplicar">multiplicar</option>
+            <option value="dividir">Dividir</option>
+        </select><br>
+        <br>
+        <div id="resultado" style="padding: 50px; border: 1px solid red; border-collapse: collapse;">
+            &nbsp;
+        </div>
+    </form>
+    <script>
+        function operacion(){
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+            var ope = document.getElementById("ope").value;
+            if(ope=="sumar"){
+                var c = parseInt(a)+parseInt(b);
+                document.getElementById("resultado").innerHTML=c;
+            }else if (ope=="restar"){
+                var c = parseInt(a)-parseInt(b);
+                document.getElementById("resultado").innerHTML=c;
+            }else if (ope=="multiplicar"){
+                var c = parseInt(a)*parseInt(b);
+                document.getElementById("resultado").innerHTML=c;
+            }else if (ope=="dividir"){
+                var c = parseInt(a)/parseInt(b);
+                document.getElementById("resultado").innerHTML=c;
+            }
+        }
+    </script>
+</body>
+</html>
