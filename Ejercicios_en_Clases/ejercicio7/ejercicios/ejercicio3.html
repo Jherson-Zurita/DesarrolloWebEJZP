@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id="par">&nbsp;</p>
+        <input type="button" value="boton" onclick="parafo()">
+    </div>
+</body>
+<script>
+    var par = document.getElementById("par");
+    var textos = ["Lorem ipsum dolor sit amet consectetur adipisicing elit."," Architecto, minima similique magnam saepe doloremque quis"," provident quos hic ut. Voluptates, optio! Doloremque assumenda autem perspiciatis itaque cupiditate ","possimus odit accusantium.","efg"];
+    function parafo(){
+        var textoA = textos[Math.floor(Math.random() * textos.length)];
+        par.innerHTML=textoA;
+    }
+</script>
+</html>
