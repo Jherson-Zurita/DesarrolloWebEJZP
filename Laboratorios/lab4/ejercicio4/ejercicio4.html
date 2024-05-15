@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            background-color: rgb(88, 175, 255);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .de{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <label for="util">Elemento Lista :</label>
+            <input type="text" name="util" id="util">
+            <input type="button" value="Añadir" onclick="listar()" class="btn"><br>
+        </div>
+        <ul id="lista">
+            &nbsp;
+        </ul>
+</body>
+<script>
+    function listar(){
+        var util = document.getElementById("util").value
+        var lista = document.getElementById("lista");
+
+        if(util.includes(" de ")){
+            lista.innerHTML += "<li class='de'>"+util+"</li>";
+        }else{
+            lista.innerHTML += "<li>"+util+"</li>";
+        }
+
+        
+    }
+</script>
+</html>

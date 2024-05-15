@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="cielo.jpeg" alt="cielo" id="ima" style="width: 200px; height:200px"> 
+    <input type="number" id="num">
+    <input type="button" id="boton" value="Agrandar">
+    <input type="button" id="boton2" value="Reducir">
+</body>
+<script>
+    var img = document.getElementById("ima");
+    document.getElementById("boton").onclick = function () {
+        var size = parseInt(document.getElementById("num").value);
+        var actualSize = parseInt(img.style.width);
+        var newSize = actualSize + size;
+        img.style.width = newSize + "px";
+    }
+
+    document.getElementById("boton2").onclick = function () {
+        var size = parseInt(document.getElementById("num").value);
+        var actualSize = parseInt(img.style.width);
+        var newSize = actualSize - size;
+        img.style.width = newSize + "px";
+    }
+</script>
+</html>
+

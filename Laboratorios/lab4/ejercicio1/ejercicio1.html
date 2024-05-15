@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .celda{
+            border: 1px solid black; 
+        }
+        .mejorEstudiante {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" id="tabla">
+        <tr class="celda">
+            <th>numero</th>
+            <th>nombre</th>
+            <th>Apellido y nombres</th>
+            <th>Edad</th>
+            <th>materias</th>
+            <th>notas</th>
+        </tr>
+    </table>
+    <br>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre">
+    <label for="apellido">Apellido</label>
+    <input type="text" id="apellido">
+    <label for="edad">Edad</label>
+    <input type="text" id="edad">
+    <label for="materia">Materia</label>
+    <input type="text" id="materia">
+    <label for="nota">Nota</label>
+    <input type="number" id="nota">
+    <br>
+    <input type="button" value="Agregar" id="btn">
+    <input type="button" value="Mejor Calificacion" id="btn2" onclick="encontrarMejorEstudiante()">
+</body>
+<script>
+    class Calificacion {
+        constructor(nota, materia) {
+            this.nota = nota;
+            this.materia = materia;
+        }
+
+        getNota() {
+            return this.nota;
+        }
+
+        getMateria() {
+            return this.materia;
+        }
+    }
+
+    class Estudiante {
+        constructor(nombre, apellido, edad, calificacion) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.calificacion = calificacion;
+        }
+
+        getNombre() {
+            return this.nombre;
+        }
+
+        getApellido() {
+            return this.apellido;
+        }
+
+        getEdad() {
+            return this.edad;
+        }
+
+        getCalificacion() {
+            return this.calificacion;
+        }
+    }
+
+    var estu1 = new Estudiante("Elvis", "Zurita", 20, new Calificacion(10, "mat101"));
+    var estu2 = new Estudiante("Lopez", "Chirry", 20, new Calificacion(50, "sis209"));
+    var estu3 = new Estudiante("Pancracio", "Jenny", 20, new Calificacion(90, "si256"));
+    var estu4 = new Estudiante("Everon", "Torres", 20, new Calificacion(80, "sis101"));
+
+    var estudiantes = [estu1, estu2, estu3, estu4];
+
+    var tabla = document.getElementById("tabla");
+
+    function agregarEstudianteATabla(estudiante) {
+        var tr = document.createElement("tr");
+
+        var td0 = document.createElement("td");
+        var td1 = document.createElement("td");
+        var td2 = document.createElement("td");
+        var td3 = document.createElement("td");
+        var td4 = document.createElement("td");
+        var td5 = document.createElement("td");
+
+        td0.innerHTML = tabla.rows.length;
+        td1.innerHTML = estudiante.getNombre();
+        td2.innerHTML = estudiante.getApellido();
+        td3.innerHTML = estudiante.getEdad();
+        td4.innerHTML = estudiante.getCalificacion().getMateria();
+        td5.innerHTML = estudiante.getCalificacion().getNota();
+
+        tr.appendChild(td0);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+
+        tabla.appendChild(tr);
+    }
+
+    for (var i = 0; i < estudiantes.length; i++) {
+        agregarEstudianteATabla(estudiantes[i]);
+    }
+
+    document.getElementById("btn").addEventListener("click", function() {   
+        var nombre = document.getElementById("nombre").value;
+        var apellido = document.getElementById("apellido").value;
+        var edad = document.getElementById("edad").value;
+        var materia = document.getElementById("materia").value;
+        var nota = document.getElementById("nota").value;
+
+        var estudianteCreado = new Estudiante(nombre, apellido, edad, new Calificacion(nota, materia));
+        
+        estudiantes.push(estudianteCreado);
+        
+        agregarEstudianteATabla(estudianteCreado);
+    });
+
+    function encontrarMejorEstudiante(){
+        var mejorEstudiante = estudiantes[0];
+        for (var i = 0; i < estudiantes.length; i++) {
+            if (estudiantes[i].getCalificacion().getNota() > mejorEstudiante.getCalificacion().getNota()) {
+                mejorEstudiante = estudiantes[i];
+            }
+        }
+        
+        var rows = document.getElementById("tabla").getElementsByTagName("tr");
+
+        for (var i = 1; i < rows.length; i++) {
+            var nombreEstudiante = rows[i].getElementsByTagName("td")[1].innerHTML;
+            if (nombreEstudiante === mejorEstudiante.getNombre()) {
+                rows[i].classList.add("mejorEstudiante");
+            } else {
+                rows[i].classList.remove("mejorEstudiante");
+            }
+        }
+    }
+
+</script>
+</html>
+
