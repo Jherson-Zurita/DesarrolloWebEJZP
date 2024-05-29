@@ -57,7 +57,7 @@ function mostrar() {
                 fila.appendChild(tdId);
 
                 let tdNombres = document.createElement('td');
-                tdNombres.innerText = personas[i['nombres']];
+                tdNombres.innerText = personas[i]['nombres'];
                 fila.appendChild(tdNombres);
 
                 let tdApellidos = document.createElement('td');
