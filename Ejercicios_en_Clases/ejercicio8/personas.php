@@ -24,9 +24,12 @@ if (isset($_GET['filtro'])) {
 $result = $con->query($sql);
 
 $personas = array();
-while ($row = $result->fetch_assoc()) {
-    $personas[] = $row;
+if($result->num_rows() > 0){
+    while ($row = $result->fetch_assoc()) {
+        $personas[] = $row;
+    }
 }
+
 
 echo json_encode($personas);
 ?>

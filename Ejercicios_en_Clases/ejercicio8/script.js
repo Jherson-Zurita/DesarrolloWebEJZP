@@ -48,9 +48,13 @@ function mostrar() {
                 let fila = document.createElement('tr');
                 fila.style.backgroundColor = i % 2 == 0 ? 'white' : 'gray';
 
+                let img = document.createElement('img');
+                img.width = 50;
+                img.src = 'images/'+personas[i].fotografias;
+
                 let tdFotografia = document.createElement('td');
                 tdFotografia.innerText = personas[i]['fotografias'];
-                fila.appendChild(tdFotografia);
+                fila.appendChild(img);
 
                 let tdId = document.createElement('td');
                 tdId.innerText = personas[i]['id'];
