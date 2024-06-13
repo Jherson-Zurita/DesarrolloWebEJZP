@@ -1,3 +1,52 @@
+function cargarcontenidoMenu(url){
+    var submenu = document.getElementById("sub_menu");
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", url, true);
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState == 4) {
+            submenu.innerHTML = ajax.responseText;
+        }
+    }
+    ajax.send();
+}
+
+function pregunta1(){
+    document.getElementById("titulo").innerHTML = "Pregunta 1";
+    cargarcontenidoMenu("datos.html");
+}
+
+function creartablas(){
+    var filas = document.getElementById("fila").value;
+    var columnas = document.getElementById("columna").value;
+
+    var table=`<table style="border:1px solid black;border-collapse:collapse;">`;
+    for(var i = 0;i<filas;i++){
+        table+=`<tr>`;
+        for(var j =0; j<columnas;j++){
+            table+=`<td onclick=cambiarinput(${i},${j}) style="border:1px solid black;border-collapse:collapse; width:100px" id="c${i}${j}">&nbsp;</td>`;
+        }
+        table+=`</tr>`;
+    }
+    table+=`</table>`;
+
+    document.getElementById("contenido").innerHTML=table;
+}
+
+function cambiarinput(x,y){
+    celda=document.getElementById("c"+x+y).innerHTML=`<input type="text" id="celda" onchange="escribir(${x},${y})">`;
+    celda=document.getElementById("c"+x+y).onclick=null;
+}
+
+function escribir(){
+    valor = document.getElementById("celda").value;
+    //document.getElementById("celda").parentNode.onclick()
+    document.getElementById("celda").outerHTML=valor;
+    document.getElementById("c"+x+y).onclick=cambiarinput();
+
+}
+
+
+
 function tabla() {
     document.getElementById("titulo").innerHTML = "Pregunta 1";
     var form = document.getElementById("sub_menu");
