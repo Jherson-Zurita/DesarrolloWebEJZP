@@ -1,5 +1,6 @@
 
-    <?php $id=$_GET['id']; 
+    <?php
+    $id=$_GET['id']; 
     include("conexion.php");
     $sql = "SELECT id, titulo,autor,ideditorial,anio FROM libros where id=".$id;
     $result = $con->query( $sql );
@@ -10,7 +11,7 @@
     
     ?>
     <h1>Operacion Editar</h1>
-    <form action="javascript:editarpersona()" method="post" enctype="multipart/form-data" id="form-persona">
+    <form action="javascript:editarpersona()" method="post" id="form-persona">
         <input type="hidden" name="id" value="<?php echo $datos['id'];?>">
         <label for="titulo">Titulo :</label>
         <input type="text" id="titulo" name="titulo" value="<?php echo $datos['titulo'];?>"><br>
